@@ -1,0 +1,261 @@
+#blurscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
+    background-color: rgba(50, 52, 77, 0.266);
+    backdrop-filter: blur(100px);
+  }
+  #bubble {
+    position: fixed;
+    top: -50px;
+    left: 1120px;
+    width: 50px;
+    height: 50px;
+    z-index: -9;
+    border-radius: 50%;
+    background-color: rgbargba(219, 49, 173, 1);
+    filter: blur(5px);
+    animation: greenbubblemove 20s linear infinite;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(0, 0, 0, 0.35) 0px -2px 6px 0px inset;
+  }
+  #bubble2{
+    position: fixed;
+    top: -50px;
+    left: 1120px;
+    width: 50px;
+    height: 50px;
+    z-index: -9;
+    border-radius: 50%;
+    background-color: #E0C3FC;
+    filter: blur(5px);
+    animation: greenbubblemove 20s linear infinite;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(0, 0, 0, 0.35) 0px -2px 6px 0px inset;
+  }
+  #bubble3{
+    position: fixed;
+    top: -50px;
+    left: 80px;
+    width: 50px;
+    height: 50px;
+    z-index: -9;
+    border-radius: 50%;
+    background-color: #E0C3FC;
+    filter: blur(5px);
+    animation: greenbubblemove 20s linear infinite;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(0, 0, 0, 0.35) 0px -2px 6px 0px inset;
+  }
+  #bubble4{
+    position: fixed;
+    top: -150px;
+    left: 280px;
+    width: 50px;
+    height: 50px;
+    z-index: -9;
+    border-radius: 50%;
+    background-color: #E0C3FC;
+    filter: blur(5px);
+    animation: greenbubblemove 20s linear infinite;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(0, 0, 0, 0.35) 0px -2px 6px 0px inset;
+  }
+  #bubble5{
+    position: fixed;
+    top: -50px;
+    left: 420px;
+    width: 50px;
+    height: 50px;
+    z-index: -9;
+    border-radius: 50%;
+    background-color: #E0C3FC;
+    filter: blur(5px);
+    animation: greenbubblemove 20s linear infinite;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(0, 0, 0, 0.35) 0px -2px 6px 0px inset;
+  }
+  #bubble6{
+    position: fixed;
+    top: -150px;
+    left: 560px;
+    width: 50px;
+    height: 50px;
+    z-index: -9;
+    border-radius: 50%;
+    background-color: #E0C3FC;
+    filter: blur(5px);
+    animation: greenbubblemove 20s linear infinite;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(0, 0, 0, 0.35) 0px -2px 6px 0px inset;
+  }
+  #bubble7{
+    position: fixed;
+    top: -50px;
+    left: 720px;
+    width: 50px;
+    height: 50px;
+    z-index: -9;
+    border-radius: 50%;
+    background-color: #E0C3FC;
+    filter: blur(5px);
+    animation: greenbubblemove 20s linear infinite;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(0, 0, 0, 0.35) 0px -2px 6px 0px inset;
+  }
+  #bubble8{
+    position: fixed;
+    top: -150px;
+    left: 820px;
+    width: 50px;
+    height: 50px;
+    z-index: -9;
+    border-radius: 50%;
+    background-color: #E0C3FC;
+    filter: blur(5px);
+    animation: greenbubblemove 20s linear infinite;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(0, 0, 0, 0.35) 0px -2px 6px 0px inset;
+  }
+  #bubble9{
+    position: fixed;
+    top: -50px;
+    left: 1280px;
+    width: 50px;
+    height: 50px;
+    z-index: -9;
+    border-radius: 50%;
+    background-color: #E0C3FC;
+    filter: blur(5px);
+    animation: greenbubblemove 20s linear infinite;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(0, 0, 0, 0.35) 0px -2px 6px 0px inset;
+  }
+  #bubble10{
+    position: fixed;
+    top: -150px;
+    left: 1420px;
+    width: 50px;
+    height: 50px;
+    z-index: -9;
+    border-radius: 50%;
+    background-color: #E0C3FC ;
+    filter: blur(5px);
+    animation: greenbubblemove 20s linear infinite;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(0, 0, 0, 0.35) 0px -2px 6px 0px inset;
+  }
+  #orangebubble {
+    position: fixed;
+    top: 520px;
+    left: 1325px;
+    width: 150px; 
+    height: 150px;
+    z-index: -10;
+    border-radius: 25%;
+    background-color: #e0c3fc71 ;
+    filter: blur(5px);
+    animation: orangebubblemove 15s linear infinite;
+  }
+  @keyframes greenbubblemove {
+    0% {
+      scale: 1;
+    }
+    5% {
+      scale: 1.2;
+    }
+    10% {
+      scale: 1;
+    }
+    15% {
+      scale: 1.2;
+    }
+    20% {
+      scale: 1;
+    }
+    25% {
+      scale: 1.2;
+    }
+    30% {
+      scale: 1;
+    }
+    35% {
+      scale: 1.2;
+    }
+    40% {
+      scale: 1;
+    }
+    45% {
+      scale: 1.2;
+    }
+    50% {
+      scale: 1;
+      top: 400px;
+    }
+    55% {
+      scale: 1.2;
+    }
+    60% {
+      scale: 1;
+    }
+    75% {
+      scale: 1.2;
+    }
+    60% {
+      scale: 1;
+    }
+    75% {
+      scale: 1.2;
+    }
+    80% {
+      scale: 1;
+    }
+    85% {
+      scale: 1.2;
+    }
+    90% {
+      scale: 1;
+    }
+    95% {
+      scale: 1.2;
+    }
+    100% {
+      scale: 1;
+      top: 800px;
+    }
+  }
+  @keyframes orangebubblemove {
+    0% {
+      scale: 1;
+    }
+    25% {
+      scale: 1.2;
+      transform: rotate(90deg);
+    }
+    50% {
+      scale: 1;
+      transform: rotate(180deg);
+
+    }
+    75% {
+      scale: 1.2;
+      transform: rotate(270deg);
+    }
+    100% {
+      scale: 1;
+      transform: rotate(360deg);
+    }
+  }

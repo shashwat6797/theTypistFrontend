@@ -1,0 +1,23 @@
+#cursor{
+    display: inline-block;
+    position: fixed;
+    background-color: aqua;
+    height: 32px;
+    width: 2px;
+    top: 320px;
+    left: 293px;
+    z-index: 3;
+    margin: 3px 0px;
+    animation: blink 0 none 0 infinite none none;
+    transition: 0.1s;
+    display: none;
+}
+
+@keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }

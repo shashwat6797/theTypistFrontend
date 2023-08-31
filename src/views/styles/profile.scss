@@ -1,0 +1,62 @@
+#profileContainer {
+  color: azure;
+  // border: solid 1px rgb(240, 255, 255, 0.3);
+  width: 80vw;
+  height: 75vh;
+  margin-left: 16rem;
+  position: fixed;
+  z-index: 0;
+  top: 130px;
+  padding: 2rem 2rem;
+  background-color: rgba(17, 0, 40, 0.05);
+  backdrop-filter: blur(60px);
+  border-radius: 10px;
+
+  #profileGrid {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr 1fr;
+    height: 100%;
+    width: 100%;
+    padding: 1rem 2rem;
+    gap: 2rem;
+
+    div {
+      padding: 2rem;
+      border: solid 1px rgb(240, 255, 255, 0.3);
+      border-radius: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    #date {
+      font-size: 2rem;
+    }
+
+    #profile {
+      grid-area: 1 / 1 / span 1 / 3;
+      font-size: 3rem;
+      display: grid;
+      grid-template: 1fr / 12rem 1fr 1fr;
+      gap: 1rem;
+
+      #bestwpm,
+      #bestacc {
+        display: flex;
+        font-size: 2rem;
+        justify-content: center;
+      }
+    }
+    
+    .card{
+      font-size: 4rem;
+    }
+
+    .heading{
+      display: flex;
+      font-size: 1rem;
+      color: rgb(240, 255, 255, 0.5);
+    }
+  }
+}
