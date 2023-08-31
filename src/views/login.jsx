@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import {BASE} from '../../env';
 
 
 export default function LoginPage() {
@@ -18,7 +19,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get("http://localhost:5101/user/register").then((res) => {
+    axios.get(`${BASE}/user/register`).then((res) => {
       console.log(res.data);
       console.log(auth.authUser);
       if (res.data !== "") {
@@ -33,7 +34,7 @@ export default function LoginPage() {
     axios.defaults.withCredentials = true;
     if (username !== "" && email !== "" && password !== "") {
       axios
-        .post("http://localhost:5101/user/signUp", {
+        .post(`${BASE}/user/signUp`, {
           username: username,
           email: email,
           password: password,
@@ -61,7 +62,7 @@ export default function LoginPage() {
     axios.defaults.withCredentials = true;
     if (username !== "" && password !== "") {
       axios
-        .post("http://localhost:5101/user/login", {
+        .post(`${BASE}/user/login`, {
           username: username,
           password: password,
         })

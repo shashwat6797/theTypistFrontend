@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import {BASE} from '../../env';
 
 export default function Home() {
   const [username, setUsername] = useState("");
@@ -13,7 +14,7 @@ export default function Home() {
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get("http://localhost:5101/user/home").then((res) => {
+    axios.get(`${BASE}/user/home`).then((res) => {
       if (res.data !== "") {
         console.log(res.data);
         setUsername(res.data);
