@@ -20,7 +20,7 @@ export default function LoginPage() {
   useEffect(() => {
     axios.defaults.withCredentials = true;
     axios.get(`${BASE}/user/register`).then((res) => {
-      console.lot({cookie: res.cookie});
+      console.log({cookie: res.cookie});
       document.cookie = res.cookie;
       console.log(res.data);
       console.log(auth.authUser);
