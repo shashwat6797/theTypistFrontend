@@ -1,6 +1,7 @@
 import "./result.scss";
 import { getWpm, getAcc, getWpmSec, saveResult } from "./result_logic";
 import { Line } from "react-chartjs-2";
+
 import {
   Chart as ChartJS,
   LineElement,
@@ -10,6 +11,7 @@ import {
   Legend,
   Tooltip,
 } from "chart.js";
+import { useEffect } from "react";
 
 ChartJS.register(
   LineElement,
@@ -32,18 +34,18 @@ const Result = () => {
     labels: sec,
     datasets: [
       {
-        type: 'line',
+        type: "line",
         label: "wpm",
         data: wpmSec,
         backgroundColor: "rgb(240, 255, 255)",
         borderColor: "rgb(140, 150, 150)",
-        fill: false
+        fill: false,
       },
     ],
   };
 
   const options = {
-    indexAxis: 'x',
+    indexAxis: "x",
     plugins: {
       legend: true,
     },
@@ -63,7 +65,7 @@ const Result = () => {
             size: 12,
           },
         },
-        stacked: true
+        stacked: true,
       },
       x: {
         title: {
@@ -74,19 +76,21 @@ const Result = () => {
             size: 16,
           },
         },
-        ticks:{
-          stepSize: 2
+        ticks: {
+          stepSize: 2,
         },
-        grid:{
-          offset: true
-        }
-      }
+        grid: {
+          offset: true,
+        },
+      },
     },
     maintainAspectRatio: false,
   };
 
-  const res = saveResult();
-  console.log(res);
+  useEffect(() => {
+    const res = saveResult();
+    console.log({ resultSave: res });
+  });
 
   return (
     <div id="result_container">

@@ -96,6 +96,7 @@ export const calcPracticeKeys = () => {
 
 export const saveResult = () => {
   axios.defaults.withCredentials = true;
+  console.log({wpm: wpm, acc: acc});
   axios
     .post(`${BASE}/test/result`, { wpm, acc, time: 30, practiceKeys })
     .then((res) => {
