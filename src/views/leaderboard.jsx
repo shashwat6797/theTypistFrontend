@@ -5,6 +5,8 @@ import { useAuth } from "../context/AuthContext";
 import axios from "axios";
 import "./styles/leaderboard.scss";
 import { useTable } from "react-table";
+import { BASE } from "../../env";
+
 const Leaderboard = () => {
   const auth = useAuth();
   const [data, setData] = useState([]);
@@ -25,7 +27,7 @@ const Leaderboard = () => {
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get("http://localhost:5101/user/home").then((res) => {
+    axios.get(`${BASE}/user/home`).then((res) => {
       if (res.data !== "") {
         console.log(res.data);
         auth.setAuthUser(res.data);
@@ -33,11 +35,11 @@ const Leaderboard = () => {
         // navigate('/');
       }
     });
-  }, []);
+  }, [auth]);
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get("http://localhost:5101/test/leaderboard").then((res) => {
+    axios.get(`${BASE}/test/leaderboard`).then((res) => {
       console.log(res.data);
       setData(res.data);
     });

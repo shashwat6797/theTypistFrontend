@@ -4,6 +4,7 @@ import SideBar from "./components/SideBar";
 import Nav from "./components/navBar";
 import "./styles/profile.scss";
 import axios from "axios";
+import { BASE } from "../../env";
 
 const Profile = () => {
   const auth = useAuth();
@@ -78,7 +79,7 @@ const Profile = () => {
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get("http://localhost:5101/user/home").then((res) => {
+    axios.get(`${BASE}/user/home`).then((res) => {
       if (res.data !== "") {
         console.log(res.data);
         auth.setAuthUser(res.data);
@@ -91,7 +92,7 @@ const Profile = () => {
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get("http://localhost:5101/user/info").then((res) => {
+    axios.get(`${BASE}/user/info`).then((res) => {
       console.log(res.data);
       setDate(res.data.dateCreated.split("T"));
     });
@@ -99,14 +100,14 @@ const Profile = () => {
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get("http://localhost:5101/test/profile").then((res) => {
+    axios.get(`${BASE}/test/profile`).then((res) => {
       console.log(res.data);
       calcWpm(res.data);
       calcAcc(res.data);
     });
   }, []);
 
-  axios.get("http://localhost:5101/test/profile");
+  // axios.get(`${BASE}/test/profile`);
   return (
     <div>
       <Nav />

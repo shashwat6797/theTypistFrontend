@@ -1,4 +1,5 @@
 import axios from "axios";
+import { BASE } from "../../../../env";
 
 var charactersTyped = 0;
 var wrongCharacters = 0;
@@ -96,7 +97,7 @@ export const calcPracticeKeys = () => {
 export const saveResult = () => {
   axios.defaults.withCredentials = true;
   axios
-    .post("http://localhost:5101/test/result", { wpm, acc, time: 30, practiceKeys })
+    .post(`${BASE}/test/result`, { wpm, acc, time: 30, practiceKeys })
     .then((res) => {
       return res.data;
     })

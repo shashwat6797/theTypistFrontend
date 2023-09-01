@@ -15,6 +15,7 @@ import {
   resetResult,
   setTimestamps
 } from "../typing_test/result_logic";
+import { BASE } from "../../../../env";
 
 let timer;
 
@@ -25,7 +26,7 @@ const PracticeTest = (props) => {
   useEffect(() => {
     let l = '';
     axios.defaults.withCredentials = true;
-    axios.get("http://localhost:5101/test/profile").then((res) => {
+    axios.get(`${BASE}/test/profile`).then((res) => {
       res.data.map((d) => {
         d.practiceKeys.map((k) => {
           l = l + k.key1 + k.key2;

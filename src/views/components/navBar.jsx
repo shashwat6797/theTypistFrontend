@@ -2,17 +2,18 @@ import "./styles/navBar.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import {BASE} from '../../../env';
 
 export default function Nav(props) {
   const auth = useAuth();
   const navigate = useNavigate();
   function handleLogout() {
     axios.defaults.withCredentials = true;
-    axios.get("http://localhost:5101/user/logout").then((res) => {
+    axios.get(`${BASE}/user/logout`).then((res) => {
       if(res.data === ""){
         auth.setAuthUser(null);
         // console.log(auth.authUser); 
-        navigate(`/`);
+        navigate(`/`);  
       }
     });
   }

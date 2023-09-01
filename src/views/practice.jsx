@@ -4,13 +4,14 @@ import { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import axios from "axios";
 import PracticeGame from "./components/practice_test/Practice";
+import { BASE } from "../../env";
 
 const Practice = () => {
   const auth = useAuth();
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get("http://localhost:5101/user/home").then((res) => {
+    axios.get(`${BASE}/user/home`).then((res) => {
       if (res.data !== "") {
         console.log(res.data);
         auth.setAuthUser(res.data);
@@ -18,7 +19,7 @@ const Practice = () => {
         // navigate('/');
       }
     });
-  }, []);
+  }, [auth]);
 
   return (
     <div>
