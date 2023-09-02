@@ -84,8 +84,8 @@ export default function LoginPage() {
   };
 
   const showClick = () => {
-    const showIcon = '../../public/visible.png';
-    const hideIcon = '../../public/hide.png';
+    const showIcon = '/visible.png';
+    const hideIcon = '/public/hide.png';
 
     const password = document.getElementById('pass');
     const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
@@ -157,7 +157,7 @@ export default function LoginPage() {
               />
               <img
                 id="passwordVisibility"
-                src="../../public/visible.png"
+                src="/visible.png"
                 alt="showPassword"
                 title="show"
                 onClick={showClick}
