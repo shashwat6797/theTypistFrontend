@@ -22,7 +22,7 @@ ChartJS.register(
   Tooltip
 );
 
-const Result = () => {
+const Result = (props) => {
   const wpmSec = getWpmSec();
   var sec = [];
   var datas = [];
@@ -88,9 +88,15 @@ const Result = () => {
   };
 
   useEffect(() => {
-    const res = saveResult();
-    console.log({ resultSave: res });
-  });
+    if (!props.guest) {
+      const res = saveResult();
+      console.log({ resultSave: res });
+    }
+  },[props.guest]);
+  
+  const handleClick = () => {
+    props.showResult(false);
+  }
 
   return (
     <div id="result_container">
@@ -107,6 +113,7 @@ const Result = () => {
       <div id="chart">
         <Line data={data} options={options}></Line>
       </div>
+      <div id="newGame" onClick={handleClick}>New Game</div>
     </div>
   );
 };

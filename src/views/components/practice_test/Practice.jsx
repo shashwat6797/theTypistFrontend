@@ -13,7 +13,7 @@ const PracticeGame = () => {
     console.log('result:'+result);    
   },[result]);
 
-  return <div id="game_container">{result ? <Result /> : <PracticeTest showResult={showResult}/>}</div>;
+  return <div id="game_container">{result ? <Result showResult={showResult}/> : <PracticeTest showResult={showResult}/>}</div>;
 };
 
 export default PracticeGame;

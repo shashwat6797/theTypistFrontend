@@ -9,7 +9,7 @@ const Game = () => {
     setResult(bool);
   }
 
-  return <div id="game_container">{result ? <Result /> : <Test showResult={showResult}/>}</div>;
+  return <div id="game_container">{result ? <Result showResult={showResult} /> : <Test showResult={showResult}/>}</div>;
 };
 
 export default Game;

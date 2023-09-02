@@ -22,6 +22,12 @@
     color: azure;
     cursor: pointer;  
     transition: all 0.5s ease-out;
+    a,
+    a:active,
+    a:focus,
+    a:visited{
+      color: azure;
+    }
   }
   #Geust:hover{
     box-shadow: 1px 1px 40px rgba(251, 135, 251, 0.663);

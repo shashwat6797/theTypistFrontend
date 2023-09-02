@@ -13,7 +13,8 @@
   border-radius: 10px;
   display: grid;
   grid-template-areas:
-    "info chart";
+    "info chart"
+    "newGame newGame";
   grid-template-columns: 10rem 1fr;
   row-gap: 0;
   column-gap: 2rem;
@@ -35,8 +36,30 @@
   }
   #chart {
     grid-area: chart;
-    padding: 4rem 2rem;
-    height: 45vh;
+    padding: 2rem 2rem;
+    height: 40vh;
+  }
+  #newGame{
+    grid-area: newGame;
+    display: grid;
+    place-content: center;
+    border: 1px solid rgb(240, 255, 255, 0.3);
+    box-shadow: 1px 1px 1px rgb(235, 177, 239,0.5);
+    width: fit-content;
+    height: fit-content;
+    margin-inline: auto;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: ease 0.2s;
+  }
+  #newGame:hover{
+    box-shadow: 1px 1px 20px rgb(235, 177, 239,0.5);
+    scale: 1.02;
+  }
+  #newGame:active{
+    scale: 0.97;
   }
 
   .heading{

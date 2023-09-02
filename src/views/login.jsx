@@ -34,9 +34,15 @@ export default function LoginPage() {
 
     axios.defaults.withCredentials = true;
     if (username !== "" && email !== "" && password !== "") {
-      setUserName(prev=>{prev.trim()});
-      setEmail(prev=>{prev.trim()});
-      setPassword(prev=>{prev.trim()});
+      setUserName((prev) => {
+        prev.trim();
+      });
+      setEmail((prev) => {
+        prev.trim();
+      });
+      setPassword((prev) => {
+        prev.trim();
+      });
       axios
         .post(`${BASE}/user/signUp`, {
           username: username,
@@ -108,7 +114,7 @@ export default function LoginPage() {
     const confirmemail = document.getElementById("confirmemail");
     if (Email.value !== confirmemail.value && email !== "") {
       setError("email does not match");
-    }else {
+    } else {
       setError("");
     }
   }, [email]);
@@ -118,7 +124,7 @@ export default function LoginPage() {
     const confirmpassword = document.getElementById("passwordconfirm");
     if (Password.value !== confirmpassword.value && password !== "") {
       setError("password does not match");
-    }else {
+    } else {
       setError("");
     }
   }, [password]);
@@ -194,7 +200,7 @@ export default function LoginPage() {
           </div>
           <button>Login</button>
           <div id="Geust">
-            Play as Guest!
+            <a href="/guest">Play as Guest!</a>
           </div>
         </form>
       </div>
