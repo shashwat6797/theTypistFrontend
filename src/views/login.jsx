@@ -12,6 +12,8 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [errorEmail, setErrorEmail] = useState("");
+  const [errorPassword, setErrorPassword] = useState("");
   const [mssg, setMssg] = useState("");
   const [errorlogin, setErrorLogin] = useState("");
   const auth = useAuth();
@@ -113,9 +115,9 @@ export default function LoginPage() {
     const Email = document.getElementById("email");
     const confirmemail = document.getElementById("confirmemail");
     if (Email.value !== confirmemail.value && email !== "") {
-      setError("email does not match");
+      setErrorEmail("email does not match");
     } else {
-      setError("");
+      setErrorEmail("");
     }
   }, [email]);
 
@@ -123,9 +125,9 @@ export default function LoginPage() {
     const Password = document.getElementById("password");
     const confirmpassword = document.getElementById("passwordconfirm");
     if (Password.value !== confirmpassword.value && password !== "") {
-      setError("password does not match");
+      setErrorPassword("password does not match");
     } else {
-      setError("");
+      setErrorPassword("");
     }
   }, [password]);
 
@@ -149,10 +151,14 @@ export default function LoginPage() {
             <input type="text" id="email" />
           </div>
           <div>
-            <label htmlFor="confirmemail">confirm email</label>
+            <div className="label">
+              <label htmlFor="confirmemail">confirm email</label>
+              <h3>{errorEmail}</h3>
+            </div>
             <input
               type="text"
               id="confirmemail"
+              autoComplete="off"
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
@@ -161,7 +167,10 @@ export default function LoginPage() {
             <input type="password" id="password" />
           </div>
           <div>
-            <label htmlFor="passwordconfirm">cofirm password</label>
+            <div className="label">
+              <label htmlFor="passwordconfirm">cofirm password</label>
+              <h3>{errorPassword}</h3>
+            </div>
             <input
               type="password"
               id="passwordconfirm"

@@ -20,13 +20,13 @@
     font-size: 3rem;
     font-weight: 500;
     color: azure;
-    cursor: pointer;  
     transition: all 0.5s ease-out;
     a,
     a:active,
     a:focus,
     a:visited{
       color: azure;
+      cursor: pointer;
     }
   }
   #Geust:hover{
@@ -67,7 +67,7 @@
     box-shadow: 10px 5px 20px rgba(255, 167, 255, 0.2);
     padding: 1rem 2rem;
     display: grid;
-    grid-template-rows: 4rem 2rem 4rem 4rem 4rem 1fr ;
+    grid-template-rows: 4rem 2rem 5rem 5rem 4rem 1fr ;
   }
 
 
@@ -133,6 +133,12 @@
     font-size: 1.2rem;
     background-color: transparent;
     color: #fff;
+  }
+  .label{
+    display: flex;
+    h3{
+      margin-left: 10px;
+    }
   }
   #input{
     position: relative;
