@@ -37,11 +37,47 @@ const Leaderboard = () => {
     });
   }, [auth]);
 
+  function sortJSONByKey(jsonArray, key) {
+    if (!Array.isArray(jsonArray) || jsonArray.length === 0) {
+      return jsonArray; // Return the input array if it's not valid or empty
+    }
+  
+    // Custom comparison function to sort objects based on the specified key
+    function compareObjects(a, b) {
+      const valueA = a[key];
+      const valueB = b[key];
+  
+      if (valueA < valueB) {
+        return 1;
+      }
+      if (valueA > valueB) {
+        return -1;
+      }
+      return 0;
+    }
+  
+    // Sort the JSON array in-place using the custom comparison function
+    jsonArray.sort(compareObjects);
+  
+    return jsonArray;
+  }
+  
+  // Example usage:
+  // const jsonData = [
+  //   { name: 'John', age: 30 },
+  //   { name: 'Alice', age: 25 },
+  //   { name: 'Bob', age: 35 },
+  // ];
+  
+  // const sortedData = sortJSONByKey(jsonData, 'age');
+  // console.log(sortedData);
+
   useEffect(() => {
     axios.defaults.withCredentials = true;
     axios.get(`${BASE}/test/leaderboard`).then((res) => {
       console.log(res.data);
-      setData(res.data);
+      const sortedData = sortJSONByKey(res.data, 'wpm');
+      setData(sortedData);
     });
   }, []);
 
@@ -64,7 +100,7 @@ const Leaderboard = () => {
                   <>
                     <tr>
                       <td>{e.userId}</td>
-                      <td>{Math.ceil(e.wpm)} wpm</td>
+                      <td>{parseFloat(e.wpm).toFixed(2)} wpm</td>
                       <td>{Math.ceil(e.acc)}%</td>
                     </tr>
                   </>
