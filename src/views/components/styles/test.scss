@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 #test_container {
   color: azure;
   // border: solid 1px rgb(240, 255, 255, 0.3);
@@ -64,12 +65,13 @@
       font-size: 1.5rem;
       line-height: 2rem;
       margin: 5px 5px;
-      font-family: Montserrat;
+      font-family: 'Roboto Mono', sans-serif;
       filter: blur(5px);
       transition: 0.3s;
 
       .letter {
-        // margin: 0 0.5px;  
+        // margin: 0 0.5px;
+        font-family: 'Roboto Mono', sans-serif;  
       }
       .letter.correct{
         color: azure;
