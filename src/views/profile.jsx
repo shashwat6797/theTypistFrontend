@@ -5,6 +5,7 @@ import Nav from "./components/navBar";
 import "./styles/profile.scss";
 import axios from "axios";
 import { BASE } from "../../env";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const auth = useAuth();
@@ -16,6 +17,7 @@ const Profile = () => {
   const [avg, setAvg] = useState(0);
   const [tenAcc, setTenAcc] = useState(0);
   const [acc, setAcc] = useState(0);
+  const navigate = useNavigate();
 
   const calcWpm = (res) => {
     let avg = 0;
@@ -85,7 +87,7 @@ const Profile = () => {
         auth.setAuthUser(res.data);
         setUser(auth.authUser);
       } else {
-        // navigate('/');
+        navigate('/');
       }
     });
   });

@@ -4,12 +4,14 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import axios from "axios";
 import "./styles/leaderboard.scss";
-import { useTable } from "react-table";
+// import { useTable } from "react-table";
+import { useNavigate } from "react-router-dom";
 import { BASE } from "../../env";
 
 const Leaderboard = () => {
   const auth = useAuth();
   const [data, setData] = useState([]);
+  const navigate  = useNavigate();
   const columns = [
     {
       Header: "Username",
@@ -32,7 +34,7 @@ const Leaderboard = () => {
         console.log(res.data);
         auth.setAuthUser(res.data);
       } else {
-        // navigate('/');
+        navigate('/');
       }
     });
   }, [auth]);

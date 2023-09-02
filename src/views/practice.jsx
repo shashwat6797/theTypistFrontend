@@ -5,10 +5,12 @@ import { useAuth } from "../context/AuthContext";
 import axios from "axios";
 import PracticeGame from "./components/practice_test/Practice";
 import { BASE } from "../../env";
+import { useNavigate } from "react-router-dom";
 
 const Practice = () => {
   const auth = useAuth();
-
+  const navigate = useNavigate();
+  
   useEffect(() => {
     axios.defaults.withCredentials = true;
     axios.get(`${BASE}/user/home`).then((res) => {
@@ -16,7 +18,7 @@ const Practice = () => {
         console.log(res.data);
         auth.setAuthUser(res.data);
       } else {
-        // navigate('/');
+        navigate('/');
       }
     });
   }, [auth]);

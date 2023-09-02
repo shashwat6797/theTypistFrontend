@@ -34,6 +34,9 @@ export default function LoginPage() {
 
     axios.defaults.withCredentials = true;
     if (username !== "" && email !== "" && password !== "") {
+      setUserName(username.trim());
+      setEmail(email.trim());
+      setPassword(password.trim());
       axios
         .post(`${BASE}/user/signUp`, {
           username: username,
