@@ -8,7 +8,7 @@ const removeClass = (el, name) => {
   el.classList.remove(name);
 };
 
-const sound = new Audio("../../../../public/click4_1.wav");
+const sound = new Audio("/click4_1.wav");
 var timer;
 
  const setTimer = () => {

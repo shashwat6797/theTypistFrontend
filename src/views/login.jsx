@@ -85,7 +85,7 @@ export default function LoginPage() {
 
   const showClick = () => {
     const showIcon = '/visible.png';
-    const hideIcon = '/public/hide.png';
+    const hideIcon = '/hide.png';
 
     const password = document.getElementById('pass');
     const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
