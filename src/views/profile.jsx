@@ -110,7 +110,7 @@ const Profile = () => {
   // axios.get(`${BASE}/test/profile`);
   return (
     <div>
-      <Nav />
+      <Nav user={auth.authUser}/>
       <SideBar />
       <div id="profileContainer">
         <div id="profileGrid">

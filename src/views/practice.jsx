@@ -23,7 +23,7 @@ const Practice = () => {
 
   return (
     <div>
-      <Nav />
+      <Nav user={auth.authUser}/>
       <SideBar />
       <div id="practiceContainer">
         <PracticeGame />

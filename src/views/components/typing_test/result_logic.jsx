@@ -18,12 +18,12 @@ export const getWpm = () => {
     wrongCharacters: wrongCharacters,
   });
   wpm = (charactersTyped / 5 - wrongCharacters / 5) * 2;
-  return Math.ceil(wpm);
+  return Math.ceil(wpm) > 0 ? Math.floor(wpm) : 0 ;
 };
 
 export const getAcc = () => {
   if (charactersTyped !== 0) acc = 100 - (incorrect / charactersTyped) * 100;
-  return Math.floor(acc);
+  return Math.floor(acc) > 0 ? Math.floor(acc) : 0 ;
 };
 
 export const incrementTyped = (value) => {
@@ -86,21 +86,30 @@ export const calcPracticeKeys = () => {
   avg = avg / practiceKeys.length;
   practiceKeys = [];
   for (let i = 1; i < timestamp.length; i++) {
-    if (avg < timestamp[i].time - timestamp[i - 1].time && timestamp[i].letter != timestamp[i - 1].letter) {
+    if (
+      avg < timestamp[i].time - timestamp[i - 1].time &&
+      timestamp[i].letter != timestamp[i - 1].letter
+    ) {
       const diff = timestamp[i].time - timestamp[i - 1].time;
-      practiceKeys.push({ key1: timestamp[i - 1].letter, key2: timestamp[i].letter, diff:diff});
+      practiceKeys.push({
+        key1: timestamp[i - 1].letter,
+        key2: timestamp[i].letter,
+        diff: diff,
+      });
     }
   }
-  console.log('practice Key' + practiceKeys);
+  console.log("practice Key" + practiceKeys);
 };
 
 export const saveResult = () => {
   axios.defaults.withCredentials = true;
-  console.log({wpm: wpm, acc: acc});
-  axios
-    .post(`${BASE}/test/result`, { wpm, acc, time: 30, practiceKeys })
-    .then((res) => {
-      return res.data;
-    })
-    .catch((err) => console.log(err));
+  console.log({ wpm: wpm, acc: acc });
+  if (wpm > 0 || acc > 0) {
+    axios
+      .post(`${BASE}/test/result`, { wpm, acc, time: 30, practiceKeys })
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => console.log(err));
+  }
 };

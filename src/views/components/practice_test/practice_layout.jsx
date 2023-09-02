@@ -116,6 +116,7 @@ const PracticeTest = (props) => {
       if (
         currentLetter === document.getElementById("words").firstChild.firstChild
       ) {
+        clearInterval(timer);
         setTimer();
       }
 

@@ -47,7 +47,7 @@ const Leaderboard = () => {
 
   return (
     <div>
-      <Nav />
+      <Nav user={auth.authUser} />
       <SideBar />
       <div id="leaderboardContainer">
       <h1>LeaderBoard</h1>

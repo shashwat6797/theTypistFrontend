@@ -12,11 +12,11 @@ import {
   incrementWrongTyped,
   incrementWrongTypedSec,
   resetResult,
-  setTimestamps
+  setTimestamps,
 } from "./result_logic";
 
 var timer;
-const view = 'home';
+const view = "home";
 var wrdIndex = 0;
 
 const Test = (props) => {
@@ -38,21 +38,20 @@ const Test = (props) => {
   };
 
   const sound = new Audio("/click4_1.wav");
-  
 
   const setTimer = () => {
-    var time = document.getElementById("timer").innerHTML;
+    var time = document.getElementById("timer").innerHTML - 1;
     let i = 1;
     timer = setInterval(() => {
       document.getElementById("timer").innerHTML = time;
-      if (time > 0 ) {
+      if (time > 0) {
         const typed = document.querySelectorAll(
           ".letter.correct",
           ".letter.incorrect"
         );
         var typedNo = typed.length;
         const wrong = document.querySelectorAll(".letter.incorrect");
-        
+
         var wrongNo = wrong.length;
         incrementTypedSec(typedNo);
         incrementWrongTypedSec(wrongNo);
@@ -60,8 +59,8 @@ const Test = (props) => {
         time--;
         i++;
       } else {
-          clearInterval(timer);
-          gameOver();
+        clearInterval(timer);
+        gameOver();
       }
     }, 1000);
   };
@@ -98,6 +97,7 @@ const Test = (props) => {
       if (
         currentLetter === document.getElementById("words").firstChild.firstChild
       ) {
+        clearInterval(timer);
         setTimer();
       }
 
@@ -111,7 +111,7 @@ const Test = (props) => {
           if (currentLetter.nextSibling) {
             addClass(currentLetter.nextSibling, "active");
           }
-          setTimestamps(expected, 'correct');
+          setTimestamps(expected, "correct");
         } else {
           addClass(currentLetter, "incorrect");
           removeClass(currentLetter, "active");
@@ -120,7 +120,7 @@ const Test = (props) => {
           } else {
             //
           }
-          setTimestamps(expected, 'incorrect');
+          setTimestamps(expected, "incorrect");
           incrementIncorrect();
         }
       }
@@ -147,21 +147,26 @@ const Test = (props) => {
 
       //handle backspace
       if (isBackspace) {
-        if (currentLetter) {
-          if (currentLetter === currentWord.firstChild) {
-            removeClass(currentLetter, "active");
-            removeClass(currentWord, "active");
-            addClass(currentWord.previousSibling, "active");
+        if (
+          currentLetter !==
+          document.getElementById("words").firstChild.firstChild
+        ) {
+          if (currentLetter) {
+            if (currentLetter === currentWord.firstChild) {
+              removeClass(currentLetter, "active");
+              removeClass(currentWord, "active");
+              addClass(currentWord.previousSibling, "active");
+            } else {
+              removeClass(currentLetter, "active");
+              addClass(currentLetter.previousSibling, "active");
+              removeClass(currentLetter.previousSibling, "incorrect");
+              removeClass(currentLetter.previousSibling, "correct");
+            }
           } else {
-            removeClass(currentLetter, "active");
-            addClass(currentLetter.previousSibling, "active");
-            removeClass(currentLetter.previousSibling, "incorrect");
-            removeClass(currentLetter.previousSibling, "correct");
+            addClass(currentWord.lastChild, "active");
+            removeClass(currentWord.lastChild, "incorrect");
+            removeClass(currentWord.lastChild, "correct");
           }
-        } else {
-          addClass(currentWord.lastChild, "active");
-          removeClass(currentWord.lastChild, "incorrect");
-          removeClass(currentWord.lastChild, "correct");
         }
       }
 
