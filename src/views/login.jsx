@@ -87,16 +87,41 @@ export default function LoginPage() {
   };
 
   const showClick = () => {
-    const showIcon = '/visible.png';
-    const hideIcon = '/hide.png';
+    const showIcon = "/visible.png";
+    const hideIcon = "/hide.png";
 
-    const password = document.getElementById('pass');
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
-    const icon = document.getElementById('passwordVisibility');
-    type === 'password' ? icon.setAttribute('src', showIcon) : icon.setAttribute('src', hideIcon);
-    type === 'password' ? icon.setAttribute('title', 'show') : icon.setAttribute('title', 'hide');
+    const password = document.getElementById("pass");
+    const type =
+      password.getAttribute("type") === "password" ? "text" : "password";
+    password.setAttribute("type", type);
+    const icon = document.getElementById("passwordVisibility");
+    type === "password"
+      ? icon.setAttribute("src", showIcon)
+      : icon.setAttribute("src", hideIcon);
+    type === "password"
+      ? icon.setAttribute("title", "show")
+      : icon.setAttribute("title", "hide");
   };
+
+  useEffect(() => {
+    const Email = document.getElementById("email");
+    const confirmemail = document.getElementById("confirmemail");
+    if (Email.value !== confirmemail.value && email !== "") {
+      setError("email does not match");
+    }else {
+      setError("");
+    }
+  }, [email]);
+
+  useEffect(() => {
+    const Password = document.getElementById("password");
+    const confirmpassword = document.getElementById("passwordconfirm");
+    if (Password.value !== confirmpassword.value && password !== "") {
+      setError("password does not match");
+    }else {
+      setError("");
+    }
+  }, [password]);
 
   return (
     <>
@@ -127,15 +152,15 @@ export default function LoginPage() {
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <input type="password" id="password" />
           </div>
           <div>
             <label htmlFor="passwordconfirm">cofirm password</label>
-            <input type="password" id="passwordconfirm" />
+            <input
+              type="password"
+              id="passwordconfirm"
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
           <button>Register</button>
         </form>
