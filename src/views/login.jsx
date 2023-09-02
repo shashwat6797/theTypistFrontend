@@ -4,8 +4,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import {BASE} from '../../env';
-
+import { BASE } from "../../env";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -20,7 +19,7 @@ export default function LoginPage() {
   useEffect(() => {
     axios.defaults.withCredentials = true;
     axios.get(`${BASE}/user/register`).then((res) => {
-      console.log({cookie: res});
+      console.log({ cookie: res });
       document.cookie = res.cookie;
       console.log(res.data);
       console.log(auth.authUser);
@@ -84,6 +83,18 @@ export default function LoginPage() {
     }
   };
 
+  const showClick = () => {
+    const showIcon = '../../public/visible.png';
+    const hideIcon = '../../public/hide.png';
+
+    const password = document.getElementById('pass');
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    const icon = document.getElementById('passwordVisibility');
+    type === 'password' ? icon.setAttribute('src', showIcon) : icon.setAttribute('src', hideIcon);
+    type === 'password' ? icon.setAttribute('title', 'show') : icon.setAttribute('title', 'hide');
+  };
+
   return (
     <>
       <Nav />
@@ -138,11 +149,20 @@ export default function LoginPage() {
           </div>
           <div>
             <label htmlFor="pass">Password</label>
-            <input
-              type="password"
-              id="pass"
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div id="input">
+              <input
+                type="password"
+                id="pass"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <img
+                id="passwordVisibility"
+                src="../../public/visible.png"
+                alt="showPassword"
+                title="show"
+                onClick={showClick}
+              />
+            </div>
           </div>
           <button>login</button>
           <div id="Geust">

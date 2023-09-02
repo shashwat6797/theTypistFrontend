@@ -1,4 +1,4 @@
-#container {
+  #container {
   display: grid;
   grid-template: 1fr / 1fr 1fr;
   width: 75vw;
@@ -93,6 +93,7 @@
     font-size: 1.2rem;
     font-weight: 500;
     color:#fff;
+    position: relative;
   }
   input:focus {
     height: 2rem;
@@ -127,5 +128,15 @@
     font-size: 1.2rem;
     background-color: transparent;
     color: #fff;
+  }
+  #input{
+    position: relative;
+  }
+  #passwordVisibility{
+    width: 2rem;
+    position: absolute;
+    margin-left: 90%;
+    margin-right: 10px;
+    cursor: pointer;
   }
 }
