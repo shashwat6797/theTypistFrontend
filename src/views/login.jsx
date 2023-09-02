@@ -34,9 +34,9 @@ export default function LoginPage() {
 
     axios.defaults.withCredentials = true;
     if (username !== "" && email !== "" && password !== "") {
-      setUserName(username.trim());
-      setEmail(email.trim());
-      setPassword(password.trim());
+      setUserName(prev=>{prev.trim()});
+      setEmail(prev=>{prev.trim()});
+      setPassword(prev=>{prev.trim()});
       axios
         .post(`${BASE}/user/signUp`, {
           username: username,
@@ -192,13 +192,9 @@ export default function LoginPage() {
               />
             </div>
           </div>
-          <button>login</button>
+          <button>Login</button>
           <div id="Geust">
-            <h2>Play Now!</h2>
-            <p>
-              Help your eyes relax by keeping them still. <br /> Login to play
-              personalised training games,
-            </p>
+            Play as Guest!
           </div>
         </form>
       </div>
