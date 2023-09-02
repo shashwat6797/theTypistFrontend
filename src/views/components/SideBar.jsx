@@ -26,9 +26,6 @@ export default function SideBar() {
           <img src="/leaderboard.png" alt="user" />{" "}
           <a href="/leaderboard">LeaderBoard</a>
         </div>
-        <div className="space">
-          
-        </div>
         <div className="space"> </div>
         <div>
           {" "}

@@ -27,8 +27,8 @@ export default function Nav(props) {
         <li></li>
         {props.user ? (
           <li id="logout">
-            <a>{props.user}</a>
-            <a  onClick={handleLogout}>
+            <a title="username">{props.user}</a>
+            <a title="logout" onClick={handleLogout}>
               <img type="image/svg+xml" src="/icons8-logout-96.png" />
             </a>
           </li>

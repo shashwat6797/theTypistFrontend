@@ -3,7 +3,7 @@ aside{
 }
 
 #menu_container{
-    height: 88.5vh;
+    height: 88vh;
     display: grid;
     color: azure;
     width: 4.1rem;
@@ -12,7 +12,7 @@ aside{
     transition: 0.5s;
     overflow: hidden;
     border-right: 1px solid #ffffff3c;
-    grid-template: repeat(5, 4rem) 1fr 4rem / 1fr;
+    grid-template: repeat(4, 4rem) 1fr 4rem / 1fr;
     margin-left: 0;
 
 
