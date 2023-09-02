@@ -29,7 +29,7 @@ export default function SideBar() {
         <div className="space"> </div>
         <div>
           {" "}
-          <img src="/setting.png" alt="user" /> <a href="/">Settings</a>
+          <img src="/setting.png" alt="user" /> <a >Settings</a>
         </div>
       </div>
     </aside>
