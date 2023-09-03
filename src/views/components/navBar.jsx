@@ -21,7 +21,7 @@ export default function Nav(props) {
   return (
     <header>
       <nav>
-        <a href={`/`}>
+        <a href={auth.authUser ? null : '/'}>
           <h1>theTypist</h1>
         </a>
         <li></li>
