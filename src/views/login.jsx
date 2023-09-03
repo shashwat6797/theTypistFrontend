@@ -22,15 +22,13 @@ export default function LoginPage() {
   useEffect(() => {
     axios.defaults.withCredentials = true;
     axios.get(`${BASE}/user/register`).then((res) => {
-      console.log({ cookie: res });
-      document.cookie = res.cookie;
-      console.log(res.data);
-      console.log(auth.authUser);
+      console.log("login mount " + res.data);
+      console.log("login mount " + auth.authUser);
       if (res.data !== "") {
         navigate(`/home/:${res.data}`);
       }
     });
-  });
+  }, [auth.authUser]);
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -79,14 +77,17 @@ export default function LoginPage() {
           username: username,
           password: password,
         })
-        .then( setLoader(true))
+        .then(setLoader(true))
         .then((Response) => {
           console.log(Response.data);
           if (Response.data === "Invalid username") {
             setErrorLogin(Response.data);
           } else if (Response.data === true) {
             navigate(`/home/:${username}`);
-          } else setErrorLogin("Wrong password");
+          } else {
+            setLoader(false);
+            setErrorLogin("Wrong password");
+          }
         })
         .catch((err) => {
           console.log(err);

@@ -33,7 +33,7 @@ const Profile = () => {
       });
       avg = Math.ceil(avg / res.length);
       setAvg(avg);
-      avg =0;
+      avg = 0;
       for (let i = res.length - 1; i >= res.length - 10; i--) {
         avg = avg + res[i].wpm;
       }
@@ -41,8 +41,8 @@ const Profile = () => {
       setTenAvg(avg);
     }
     avg = 0;
-    for(let i = 0; i < res.length-1; i++){
-      if(avg < res[i].wpm){
+    for (let i = 0; i < res.length - 1; i++) {
+      if (avg < res[i].wpm) {
         avg = res[i].wpm;
       }
     }
@@ -63,7 +63,7 @@ const Profile = () => {
       });
       avg = Math.floor(avg / res.length);
       setAcc(avg);
-      avg=0;
+      avg = 0;
       for (let i = res.length - 1; i >= res.length - 10; i--) {
         avg = avg + res[i].acc;
       }
@@ -71,8 +71,8 @@ const Profile = () => {
       setTenAcc(avg);
     }
     avg = 0;
-    for(let i = 0; i < res.length-1; i++){
-      if(avg < res[i].acc){
+    for (let i = 0; i < res.length - 1; i++) {
+      if (avg < res[i].acc) {
         avg = res[i].acc;
       }
     }
@@ -87,7 +87,7 @@ const Profile = () => {
         auth.setAuthUser(res.data);
         setUser(auth.authUser);
       } else {
-        navigate('/');
+        navigate("/");
       }
     });
   });
@@ -112,16 +112,18 @@ const Profile = () => {
   // axios.get(`${BASE}/test/profile`);
   return (
     <div>
-      <Nav user={auth.authUser}/>
+      <Nav user={auth.authUser} />
       <SideBar />
       <div id="profileContainer">
         <div id="profileGrid">
           <div id="profile">
             <section>
-              {User}
-              <p>
-                Joined on <br></br> <span id={"date"}>{date[0]}</span>
-              </p>
+              <div>
+                {User}
+                <p>
+                  Joined on <br></br> <span id={"date"}>{date[0]}</span>
+                </p>
+              </div>
             </section>
             <section id="bestwpm">
               Best <br /> WPM <br /> {bestWPM}
@@ -132,7 +134,8 @@ const Profile = () => {
           </div>
           <div className="card">
             <span className="heading">
-              Average Wpm <br />Last 10 Games
+              Average Wpm <br />
+              Last 10 Games
             </span>
             {tenAvg} wpm
           </div>
