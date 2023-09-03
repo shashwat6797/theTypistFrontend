@@ -81,6 +81,8 @@ const Profile = () => {
   };
 
   useEffect(() => {
+    const sideBar = document.getElementById('profile');
+    sideBar.style.backgroundColor = '#ffffff66';
     axios.defaults.withCredentials = true;
     axios.get(`${BASE}/user/home`).then((res) => {
       if (res.data !== "") {

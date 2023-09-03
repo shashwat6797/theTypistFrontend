@@ -12,6 +12,8 @@ const Practice = () => {
   const navigate = useNavigate();
   
   useEffect(() => {
+    const sideBar = document.getElementById('practice');
+    sideBar.style.backgroundColor = '#ffffff66';
     axios.defaults.withCredentials = true;
     axios.get(`${BASE}/user/home`).then((res) => {
       if (res.data !== "") {

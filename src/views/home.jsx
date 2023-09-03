@@ -13,6 +13,8 @@ export default function Home() {
   const auth = useAuth();
 
   useEffect(() => {
+    const sideBar = document.getElementById('home');
+    sideBar.style.backgroundColor = '#ffffff66';
     axios.defaults.withCredentials = true;
     axios.get(`${BASE}/user/home`).then((res) => {
       if (res.data !== "") {
