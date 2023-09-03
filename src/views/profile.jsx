@@ -81,6 +81,8 @@ const Profile = () => {
   };
 
   useEffect(() => {
+    const sideBarEl = document.getElementById('profile');
+    sideBarEl.style.backgroundColor = '#ffffff61';
     axios.defaults.withCredentials = true;
     axios.get(`${BASE}/user/home`).then((res) => {
       if (res.data !== "") {
@@ -111,7 +113,7 @@ const Profile = () => {
     loaderOff();
   }, []);
 
-  const loaderOff = () => {
+  const loaderOff = () => { 
     setTimeout(() => {
       setLoader(false);
     }, 2000);
