@@ -16,6 +16,7 @@ export default function LoginPage() {
   const [errorPassword, setErrorPassword] = useState("");
   const [mssg, setMssg] = useState("");
   const [errorlogin, setErrorLogin] = useState("");
+  const [loader, setLoader] = useState(false);
   const auth = useAuth();
 
   useEffect(() => {
@@ -78,6 +79,7 @@ export default function LoginPage() {
           username: username,
           password: password,
         })
+        .then( setLoader(true))
         .then((Response) => {
           console.log(Response.data);
           if (Response.data === "Invalid username") {
@@ -179,39 +181,47 @@ export default function LoginPage() {
           </div>
           <button>Register</button>
         </form>
-        <form onSubmit={handleLogin} id="login">
-          <h2>Login</h2>
-          <h3>{errorlogin}</h3>
+        {loader ? (
+          <div id="loader">
+            <span className="loader"></span>
+          </div>
+        ) : (
           <div>
-            <label htmlFor="username">UserName</label>
-            <input
-              type="text"
-              id="username"
-              onChange={(e) => setUserName(e.target.value)}
-            />
+            <form onSubmit={handleLogin} id="login">
+              <h2>Login</h2>
+              <h3>{errorlogin}</h3>
+              <div>
+                <label htmlFor="username">UserName</label>
+                <input
+                  type="text"
+                  id="username"
+                  onChange={(e) => setUserName(e.target.value)}
+                />
+              </div>
+              <div>
+                <label htmlFor="pass">Password</label>
+                <div id="input">
+                  <input
+                    type="password"
+                    id="pass"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <img
+                    id="passwordVisibility"
+                    src="/visible.png"
+                    alt="showPassword"
+                    title="show"
+                    onClick={showClick}
+                  />
+                </div>
+              </div>
+              <button>Login</button>
+              <div id="Geust">
+                <a href="/guest">Play as Guest!</a>
+              </div>
+            </form>
           </div>
-          <div>
-            <label htmlFor="pass">Password</label>
-            <div id="input">
-              <input
-                type="password"
-                id="pass"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <img
-                id="passwordVisibility"
-                src="/visible.png"
-                alt="showPassword"
-                title="show"
-                onClick={showClick}
-              />
-            </div>
-          </div>
-          <button>Login</button>
-          <div id="Geust">
-            <a href="/guest">Play as Guest!</a>
-          </div>
-        </form>
+        )}
       </div>
     </>
   );
