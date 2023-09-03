@@ -24,8 +24,6 @@ export default function Home() {
         navigate('/');
       }
     });
-    const sideBarEl = document.getElementById('game');
-    sideBarEl.style.backgroundColor = '#ffffff61';
   });
 
   return (

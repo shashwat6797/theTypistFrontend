@@ -6,28 +6,28 @@ export default function SideBar() {
   return (
     <aside>
       <div id="menu_container">
-        <div id="profile">
+        <div>
           {" "}
           <img src="/user.svg" alt="user" />{" "}
           <a href={`/profile/:${auth.authUser}`}>Profile</a>
         </div>
-        <div id="game">
+        <div>
           {" "}
           <img src="/keyboard.png" alt="user" />{" "}
           <a href={`/home/:${auth.authUser}`}>Game</a>
         </div>
-        <div id="practice">
+        <div>
           {" "}
           <img src="/lesson.png" alt="user" />{" "}
           <a href={`/practice/:${auth.authUser}`}>Practice</a>
         </div>
-        <div id="leaderboard">
+        <div>
           {" "}
           <img src="/leaderboard.png" alt="user" />{" "}
           <a href="/leaderboard">LeaderBoard</a>
         </div>
         <div className="space"> </div>
-        <div id="setting">
+        <div>
           {" "}
           <img src="/setting.png" alt="user" /> <a >Settings</a>
         </div>
