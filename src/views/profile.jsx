@@ -17,6 +17,7 @@ const Profile = () => {
   const [avg, setAvg] = useState(0);
   const [tenAcc, setTenAcc] = useState(0);
   const [acc, setAcc] = useState(0);
+  const [loader, setLoader] = useState(true);
   const navigate = useNavigate();
 
   const calcWpm = (res) => {
@@ -107,7 +108,14 @@ const Profile = () => {
       calcWpm(res.data);
       calcAcc(res.data);
     });
+    loaderOff();
   }, []);
+
+  const loaderOff = () => {
+    setTimeout(() => {
+      setLoader(false);
+    }, 2000);
+  }
 
   // axios.get(`${BASE}/test/profile`);
   return (
@@ -115,49 +123,51 @@ const Profile = () => {
       <Nav user={auth.authUser} />
       <SideBar />
       <div id="profileContainer">
-        <div id="profileGrid">
-          <div id="profile">
-            <section>
-              <div>
+        {loader ? (
+          <sapn className="loader"></sapn>
+        ) : (
+          <div id="profileGrid">
+            <div id="profile">
+              <section>
                 {User}
                 <p>
                   Joined on <br></br> <span id={"date"}>{date[0]}</span>
                 </p>
-              </div>
-            </section>
-            <section id="bestwpm">
-              Best <br /> WPM <br /> {bestWPM}
-            </section>
-            <section id="bestacc">
-              Best <br /> Accuracy <br /> {bestacc}%
-            </section>
+              </section>
+              <section id="bestwpm">
+                Best <br /> WPM <br /> {bestWPM}
+              </section>
+              <section id="bestacc">
+                Best <br /> Accuracy <br /> {bestacc}%
+              </section>
+            </div>
+            <div className="card">
+              <span className="heading">
+                Average Wpm <br />
+                Last 10 Games
+              </span>
+              {tenAvg} wpm
+            </div>
+            <div className="card">
+              <span className="heading">
+                Average Wpm <br /> All Games
+              </span>
+              {avg} wpm
+            </div>
+            <div className="card">
+              <span className="heading">
+                Average Accuracy <br /> Last 10 Games
+              </span>
+              {tenAcc}%
+            </div>
+            <div className="card">
+              <span className="heading">
+                Average Accuracy <br /> All Games
+              </span>
+              {acc}%
+            </div>
           </div>
-          <div className="card">
-            <span className="heading">
-              Average Wpm <br />
-              Last 10 Games
-            </span>
-            {tenAvg} wpm
-          </div>
-          <div className="card">
-            <span className="heading">
-              Average Wpm <br /> All Games
-            </span>
-            {avg} wpm
-          </div>
-          <div className="card">
-            <span className="heading">
-              Average Accuracy <br /> Last 10 Games
-            </span>
-            {tenAcc}%
-          </div>
-          <div className="card">
-            <span className="heading">
-              Average Accuracy <br /> All Games
-            </span>
-            {acc}%
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
