@@ -1,7 +1,7 @@
-import { words_english }  from "../../../../public/words/english.js";
-import { english_1k } from "../../../../public/words/english_1k.js";
-import { english_5k } from "../../../../public/words/english_5k.js";
-import { javascript } from "../../../../public/words/javascript.js";
+import { words_english, english_1k, english_5k, javascript }  from "../../../../public/words/english.js";
+// import { english_1k } from "../../../../public/words/english_1k.js";
+// import { english_5k } from "../../../../public/words/english_5k.js";
+// import { javascript } from "../../../../public/words/javascript.js";
 
 //Global variables
 var wordListLength = words_english.length;
