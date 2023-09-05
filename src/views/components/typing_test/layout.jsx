@@ -21,6 +21,7 @@ var wrdIndex = 0;
 
 const Test = (props) => {
   const [gameStarted, setGameStarted] = useState(false);
+  const [lang, setLang] = useState('english');
 
   const gameClick = () => {
     setGameStarted(true);
@@ -211,7 +212,7 @@ const Test = (props) => {
     }
     clearInterval(timer);
     document.getElementById("timer").innerHTML = 30;
-    reMapWord();
+    reMapWord(lang);
     resetResult();
     if (!document.querySelector(".word.active"))
       addClass(document.querySelector(".word"), "active");
@@ -250,18 +251,82 @@ const Test = (props) => {
     props.showResult(true);
   };
 
+  const handleLang = (v) => {
+    const el = document.getElementById("languageContanier");
+    el ? (el.style.display = "none") : null;
+    switch (v) {
+      case 'english': setLang('english');
+        break;
+      
+      case 'eng1k': setLang('eng1k'); console.log('set lang 1k');
+      break;
+
+      case 'eng5k': setLang('eng5k'); console.log('set lang 1k');
+      break;
+
+      case 'javascript': setLang('javascript'); console.log('set lang 1k');
+      break;
+    
+      default: setLang('english');
+        break;
+    }
+  };
+
+  const openLang = () => {
+    const el = document.getElementById("languageContanier");
+    el.style.display = "block";
+  };
+
   return (
     <>
+      <div id="languageContanier">
+        <div id="languages">
+          <div
+            className="lang "
+            onClick={() => {
+              handleLang("english");
+            }}
+          >
+            english
+          </div>
+          <div
+            className="lang "
+            onClick={() => {
+              handleLang("eng1k");
+            }}
+          >
+            english_1k
+          </div>
+          <div
+            className="lang "
+            onClick={() => {
+              handleLang("eng5k");
+            }}
+          >
+            english_5k
+          </div>
+          <div
+            className="lang "
+            onClick={() => {
+              handleLang("javascript");
+            }}
+          >
+            Javascript
+          </div>
+        </div>
+      </div>
       <Cursor />
       <div id="test_container">
         <div id="game_info">
           <div id="timer">30</div>
-          <div id="lang">english</div>
+          <div id="lang" onClick={openLang}>
+            {lang}
+          </div>
         </div>
         <div id="game">
           <div id="error">Click to play game!</div>
           <div id="words" tabIndex={0} onClick={gameClick}>
-            {mapWords().map((wrd) => {
+            {mapWords(lang).map((wrd) => {
               return wrd;
             })}
           </div>
