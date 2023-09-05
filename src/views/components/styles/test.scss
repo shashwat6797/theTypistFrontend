@@ -107,6 +107,36 @@
   #restart:hover{
     box-shadow: 5px 5px 20px #e7cbf43d;
   }
+
+}
+
+#languageContanier{
+  position: fixed;
+  color: azure;
+  border: 1px rgba(240, 255, 255, 0.437) solid;
+  border-radius: 1rem;
+  backdrop-filter: blur(2rem);
+  width: 30rem;
+  z-index: 5;
+  top: 10rem;
+  left: 37rem;
+  padding: 1.5rem 1.5rem;
+  display: none;
+  transition: 0.2s;
+  
+  #languages{
+    display: grid;
+
+    .lang{
+      padding: 1rem;
+      font-size: 1.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+    .lang:hover{
+      background-color: rgba(240, 255, 255, 0.2);
+    }
+  }
 }
 
 #error {
