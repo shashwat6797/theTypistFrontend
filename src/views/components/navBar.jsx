@@ -13,8 +13,7 @@ export default function Nav(props) {
       if(res.data === ""){
         auth.setAuthUser(null);
         // console.log(auth.authUser); 
-        let l = window.history.length
-        for( let i = 0; i < l; i++){
+        for( let i = 0; i < window.history.length; i++){
           window.history.replaceState(null,null,"https://thetypist.netlify.app/")
         }
         navigate(`/`);  
