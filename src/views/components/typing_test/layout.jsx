@@ -21,7 +21,7 @@ var wrdIndex = 0;
 
 const Test = (props) => {
   const [gameStarted, setGameStarted] = useState(false);
-  const [lang, setLang] = useState('english');
+  const [lang, setLang] = useState("english");
 
   const gameClick = () => {
     setGameStarted(true);
@@ -48,11 +48,10 @@ const Test = (props) => {
       if (time > 0) {
         const typed = document.querySelectorAll(
           ".letter.correct",
-          ".letter.incorrect"
+          ".letter.incorrect",
         );
         var typedNo = typed.length;
         const wrong = document.querySelectorAll(".letter.incorrect");
-
         var wrongNo = wrong.length;
         incrementTypedSec(typedNo);
         incrementWrongTypedSec(wrongNo);
@@ -134,7 +133,7 @@ const Test = (props) => {
           addClass(currentWord.nextSibling.firstChild, "active");
         } else {
           const lettersToInvalidate = currentWord.querySelectorAll(
-            ".letter:not(.correct)"
+            ".letter:not(.correct)",
           );
           lettersToInvalidate.forEach((element) => {
             addClass(element, "incorrect");
@@ -233,7 +232,7 @@ const Test = (props) => {
   const gameOver = () => {
     const typed = document.querySelectorAll(
       ".letter.correct",
-      ".letter.incorrect"
+      ".letter.incorrect",
     );
     var typedNo = typed.length;
     const wrong = document.querySelectorAll(".letter.incorrect");
@@ -255,19 +254,27 @@ const Test = (props) => {
     const el = document.getElementById("languageContanier");
     el ? (el.style.display = "none") : null;
     switch (v) {
-      case 'english': setLang('english');
+      case "english":
+        setLang("english");
         break;
-      
-      case 'eng1k': setLang('eng1k'); console.log('set lang 1k');
-      break;
 
-      case 'eng5k': setLang('eng5k'); console.log('set lang 1k');
-      break;
+      case "eng1k":
+        setLang("eng1k");
+        console.log("set lang 1k");
+        break;
 
-      case 'javascript': setLang('javascript'); console.log('set lang 1k');
-      break;
-    
-      default: setLang('english');
+      case "eng5k":
+        setLang("eng5k");
+        console.log("set lang 1k");
+        break;
+
+      case "javascript":
+        setLang("javascript");
+        console.log("set lang 1k");
+        break;
+
+      default:
+        setLang("english");
         break;
     }
   };

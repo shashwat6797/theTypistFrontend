@@ -1,64 +1,63 @@
-aside{
-    display: inline-block;
+aside {
+  display: inline-block;
 }
 
-#menu_container{
-    height: 88vh;
+#menu_container {
+  height: 88vh;
+  display: grid;
+  color: azure;
+  width: 4.1rem;
+  background-color: rgba(17, 0, 40, 0.05);
+  backdrop-filter: blur(20px);
+  transition: 0.5s;
+  overflow: hidden;
+  border-right: 1px solid #ffffff3c;
+  grid-template: repeat(5, 4rem) 1fr 4rem / 1fr;
+  margin-left: 0;
+
+  a,
+  a:visited {
+    display: flex;
+    color: #f0ffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  img {
+    margin-inline: auto;
+    max-width: 48px;
+    max-height: 36px;
+    transition: 1s;
+  }
+
+  div {
     display: grid;
-    color: azure;
-    width: 4.1rem;
-    background-color: rgba(17, 0, 40, 0.05);
-    backdrop-filter: blur(20px);
+    align-items: center;
+    grid-template-columns: 4rem 1fr;
     transition: 0.5s;
-    overflow: hidden;
-    border-right: 1px solid #ffffff3c;
-    grid-template: repeat(4, 4rem) 1fr 4rem / 1fr;
-    margin-left: 0;
-
-
-    a,
-    a:visited{
-        display: flex;
-        color: #f0ffff;
-        text-decoration: none;
-        font-size: 1.2rem
+  }
+  div:hover,
+  div:active {
+    padding: 0 10px;
+    a {
+      color: #333;
+      font-weight: 700;
     }
 
-    img{
-        margin-inline: auto;
-        max-width: 48px;
-        max-height: 36px;
-        transition: 1s;
+    img {
+      display: none;
     }
 
-    div{
-        display: grid;
-        align-items: center;
-        grid-template-columns: 4rem 1fr;
-        transition: 0.5s;
-    }
-    div:hover,
-    div:active{
-        padding: 0 10px;
-        a{
-        color:#333;
-        font-weight: 700;
-        }
-
-        img{
-            display: none;
-        }
-
-        color: #333;
-        background-color: azure;
-    }
-    .space:hover{
-        background-color: transparent;
-    }
+    color: #333;
+    background-color: azure;
+  }
+  .space:hover {
+    background-color: transparent;
+  }
 }
 
 #menu_container:hover,
-#menu_container:active{
-    box-shadow: 5px 5px 20px #e7cbf422;
-    width: 13rem;
+#menu_container:active {
+  box-shadow: 5px 5px 20px #e7cbf422;
+  width: 13rem;
 }

@@ -26,10 +26,14 @@ export default function SideBar() {
           <img src="/leaderboard.png" alt="user" />{" "}
           <a href="/leaderboard">LeaderBoard</a>
         </div>
+        <div id="challenge">
+          <img src="/keyboard.png" alt="challenge" />
+          <a href={`/challenge/:${auth.authUser}`}>Challenge</a>
+        </div>
         <div className="space"> </div>
         <div>
           {" "}
-          <img src="/setting.png" alt="user" /> <a >Settings</a>
+          <img src="/setting.png" alt="user" /> <a>Settings</a>
         </div>
       </div>
     </aside>

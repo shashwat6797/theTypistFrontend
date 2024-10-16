@@ -79,9 +79,10 @@ export default function LoginPage() {
         })
         .then(setLoader(true))
         .then((Response) => {
-          console.log(Response.data);
+          console.log(Response);
           if (Response.data === "Invalid username") {
             setErrorLogin(Response.data);
+            setLoader(false);
           } else if (Response.data === true) {
             navigate(`/home/:${username}`);
           } else {
